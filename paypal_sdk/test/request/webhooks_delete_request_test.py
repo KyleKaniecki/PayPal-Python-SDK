@@ -1,4 +1,4 @@
-# This class was generated on Tue, 30 May 2017 15:10:07 PDT by version 0.01 of Braintree SDK Generator
+# This class was generated on Wed, 31 May 2017 14:25:31 PDT by version 0.01 of Braintree SDK Generator
 # webhooks_delete.py
 # DO NOT EDIT
 # @type request

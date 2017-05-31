@@ -1,16 +1,16 @@
-from braintreehttp import DefaultHttpClient
+from json_http_client import JsonHttpClient
 from braintreehttp import Injector
 from injector import OAuthInjector
 
-
-class PayPalHttpClient(DefaultHttpClient):
+class PayPalHttpClient(JsonHttpClient):
     def __init__(self, environment, auth_injector=None):
-        DefaultHttpClient.__init__(self)
+        JsonHttpClient.__init__(self)
         self.environment = environment
         if auth_injector:
             self.add_injector(auth_injector)
         else:
             auth_injector = OAuthInjector(environment)
+            auth_injector.http_client = JsonHttpClient()
             self.add_injector(auth_injector)
 
         self.add_injector(injector=PayPalHttpClient.PayPalDefaultInjector(environment.base_url))

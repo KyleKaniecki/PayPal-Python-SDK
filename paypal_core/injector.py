@@ -1,5 +1,5 @@
 from braintreehttp import Injector
-from braintreehttp import DefaultHttpClient
+from json_http_client import JsonHttpClient
 from access_token_request_builder import AccessTokenRequestBuilder
 
 
@@ -7,7 +7,7 @@ class OAuthInjector(Injector):
     def __init__(self, environment, refresh_token=None):
         self.environment = environment
         self.refresh_token = refresh_token
-        self.http_client = DefaultHttpClient()
+        self.http_client = JsonHttpClient()
         self.access_token = None
 
     def __call__(self, r):
